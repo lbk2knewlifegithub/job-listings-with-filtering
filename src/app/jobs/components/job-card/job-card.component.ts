@@ -10,7 +10,6 @@ import { Job } from '../../models/job.model';
 @Component({
   selector: 'lbk-job-card',
   templateUrl: './job-card.component.html',
-  styleUrls: ['./job-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class JobCardComponent {

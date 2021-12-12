@@ -6,7 +6,7 @@
   </div>
   <!--  end logo mobile-->
 
-  <div class='flex gap-8 items-center'>
+  <div class='flex items-center gap-8'>
     <!--  logo desktop-->
     <div class='max-w-[100px] hidden desktop:block'>
       <img [src]='job.logo' [alt]='job.company'>
@@ -15,9 +15,9 @@
 
     <div>
       <!--      header-->
-      <div class='flex gap-3 items-center'>
+      <div class='flex items-center gap-3'>
         <!--  company name-->
-        <h6 class='text-primary font-bold text-base'>{{job.company}}</h6>
+        <h6 class='text-base font-bold text-primary'>{{job.company}}</h6>
         <!--  end company name-->
 
         <div class='flex flex-wrap items-center gap-1 text-sm tablet:text-base'>
@@ -33,11 +33,12 @@
       <!--      end header-->
 
       <!--position  -->
-      <a href="#" class='inline-block my-2 font-bold tracking-wider text-lg tablet:text-2xl hover:text-primary'>{{job.position}}</a>
+      <a href="#"
+        class='inline-block my-2 text-lg font-bold tracking-wider tablet:text-2xl hover:text-primary'>{{job.position}}</a>
       <!--end position  -->
 
       <!-- details -->
-      <div class='flex gap-2 items-center text-muted'>
+      <div class='flex items-center gap-2 text-muted'>
         <!--    postedAt-->
         <p>{{job.postedAt}}</p>
         <!--    end postedAt-->
@@ -68,25 +69,25 @@
 
   <div>
     <!--  languages and tools-->
-    <ul class='languagesAndTools'>
+    <ul class='flex flex-wrap gap-x-4 gap-y-3'>
       <!--    role-->
-      <li (click)='onRole.emit(job.role)'>{{job.role}}</li>
+      <li class="btn btn-primary hover:bg-dark hover:text-white" (click)='onRole.emit(job.role)'>{{job.role}}</li>
       <!--    end role-->
 
       <!--    level-->
-      <li (click)='onLevel.emit(job.level)'>{{job.level}}</li>
+      <li class="btn btn-primary hover:bg-dark hover:text-white" (click)='onLevel.emit(job.level)'>{{job.level}}</li>
       <!--    end level-->
 
 
       <!--    languages-->
       <ng-container *ngFor='let language of job.languages'>
-        <li (click)='onLanguage.emit(language)'>{{language}}</li>
+        <li class="btn btn-primary hover:bg-dark hover:text-white" (click)='onLanguage.emit(language)'>{{language}}</li>
       </ng-container>
       <!--    end languages-->
 
       <!--    tools-->
       <ng-container *ngFor='let tool of job.tools'>
-        <li (click)='onTool.emit(tool)'> {{tool}} </li>
+        <li class="btn btn-primary hover:bg-dark hover:text-white" (click)='onTool.emit(tool)'> {{tool}} </li>
       </ng-container>
       <!--    end tools-->
     </ul>

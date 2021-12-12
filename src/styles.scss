@@ -37,9 +37,8 @@
     margin: 0 auto;
   }
 
-  //CUSTOM APPLY HERE
   .btn {
-    @apply rounded-md px-2 py-1 cursor-pointer;
+    @apply inline-block rounded-md px-2 py-1 cursor-pointer;
   }
 
   .btn-primary {
