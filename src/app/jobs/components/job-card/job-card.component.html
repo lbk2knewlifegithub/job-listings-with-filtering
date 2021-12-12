@@ -1,0 +1,95 @@
+<div
+  class='relative shadow-sm pt-10 px-4 pb-6 flow-root bg-white {{border}} desktop:flex desktop:justify-between desktop:items-center'>
+  <!--  logo mobile-->
+  <div class='absolute top-0 left-0 -translate-y-1/2 translate-x-4 max-w-[60px] desktop:hidden'>
+    <img [src]='job.logo' [alt]='job.company'>
+  </div>
+  <!--  end logo mobile-->
+
+  <div class='flex gap-8 items-center'>
+    <!--  logo desktop-->
+    <div class='max-w-[100px] hidden desktop:block'>
+      <img [src]='job.logo' [alt]='job.company'>
+    </div>
+    <!--  end logo desktop-->
+
+    <div>
+      <!--      header-->
+      <div class='flex gap-3 items-center'>
+        <!--  company name-->
+        <h6 class='text-primary font-bold text-base'>{{job.company}}</h6>
+        <!--  end company name-->
+
+        <div class='flex flex-wrap items-center gap-1 text-sm tablet:text-base'>
+          <!--    news-->
+          <p *ngIf='job.new' class='badge badge-primary'>News</p>
+          <!--    end news-->
+
+          <!--    featured-->
+          <p *ngIf='job.featured' class='badge badge-dark'>Featured</p>
+          <!--    end featured-->
+        </div>
+      </div>
+      <!--      end header-->
+
+      <!--position  -->
+      <a href="#" class='inline-block my-2 font-bold tracking-wider text-lg tablet:text-2xl hover:text-primary'>{{job.position}}</a>
+      <!--end position  -->
+
+      <!-- details -->
+      <div class='flex gap-2 items-center text-muted'>
+        <!--    postedAt-->
+        <p>{{job.postedAt}}</p>
+        <!--    end postedAt-->
+
+        <!--    circle-->
+        <div class='inline-block w-[4px] h-[4px] bg-muted rounded-full'></div>
+        <!--    end circle-->
+
+        <!--    role-->
+        <p>{{job.role}}</p>
+        <!--    end role-->
+
+        <div class='w-[4px] h-[4px] bg-muted rounded-full'></div>
+
+        <!--    location-->
+        <p>{{job.location}}</p>
+        <!--    end location-->
+      </div>
+      <!-- end details -->
+
+      <!--  divider-->
+      <div class='h-[2px] w-full bg-muted/25 my-6 desktop:hidden'></div>
+      <!--  end divider-->
+
+    </div>
+
+  </div>
+
+  <div>
+    <!--  languages and tools-->
+    <ul class='languagesAndTools'>
+      <!--    role-->
+      <li (click)='onRole.emit(job.role)'>{{job.role}}</li>
+      <!--    end role-->
+
+      <!--    level-->
+      <li (click)='onLevel.emit(job.level)'>{{job.level}}</li>
+      <!--    end level-->
+
+
+      <!--    languages-->
+      <ng-container *ngFor='let language of job.languages'>
+        <li (click)='onLanguage.emit(language)'>{{language}}</li>
+      </ng-container>
+      <!--    end languages-->
+
+      <!--    tools-->
+      <ng-container *ngFor='let tool of job.tools'>
+        <li (click)='onTool.emit(tool)'> {{tool}} </li>
+      </ng-container>
+      <!--    end tools-->
+    </ul>
+    <!--  end languages and tools-->
+  </div>
+</div>

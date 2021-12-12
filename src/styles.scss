@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    // colors
+    --desaturated-dark-cyan: 180, 29%, 50%;
+    // background
+    --light-grayish-cyan: 180, 52%, 96%;
+    // filter tablets
+    --light-grayish-cyan-filter: 180, 31%, 95%;
+    --dark-grayish-cyan: 180, 8%, 52%;
+    --very-dark-grayish-cyan: 180, 14%, 20%;
+
+    // background colors
+    --bg-fill: var(--light-grayish-cyan);
+    --bg-header: var(--desaturated-dark-cyan);
+    --bg-primary: var(--desaturated-dark-cyan);
+    --bg-dark: var(--very-dark-grayish-cyan);
+    --bg-muted: var(--dark-grayish-cyan);
+
+    // text colors
+    --text-fill: var(--very-dark-grayish-cyan);
+    --text-primary: var(--desaturated-dark-cyan);
+    --text-muted: var(--dark-grayish-cyan);
+    --text-inverted: var(--bg-fill);
+
+    // borders colors
+    --border-primary: var(--desaturated-dark-cyan);
+  }
+}
+
+@layer components {
+  .container-large{
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  //CUSTOM APPLY HERE
+  .btn {
+    @apply rounded-md px-2 py-1 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply text-primary font-bold bg-primary/10;
+  }
+
+  .badge {
+    @apply inline-block rounded-full py-1 px-3  uppercase font-bold text-inverted;
+  }
+
+  .badge-primary {
+    @apply bg-primary;
+  }
+
+  .badge-dark {
+    @apply bg-dark;
+  }
+}
