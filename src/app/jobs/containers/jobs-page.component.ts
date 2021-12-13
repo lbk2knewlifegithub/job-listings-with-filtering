@@ -96,10 +96,13 @@ export class JobsPageComponent {
   }
 
   onTool(tool: string): void {
+    if (this.filter.tools.includes(tool)) return;
     this.filtering({ tools: [...this.filter.tools, tool] });
   }
 
   onLanguage(language: string): void {
+    if (this.filter.languages.includes(language)) return;
+
     this.filtering({ languages: [...this.filter.languages, language] });
   }
 
