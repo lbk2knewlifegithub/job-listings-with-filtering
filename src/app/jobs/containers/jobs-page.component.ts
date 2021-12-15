@@ -32,6 +32,7 @@ import { FilterPipe } from '../pipes/filter.pipe';
       </div>
     </main>
   `,
+  providers: [FilterPipe],
 })
 export class JobsPageComponent {
   jobs: Job[] = fromData.jobs as Job[];
@@ -43,6 +44,9 @@ export class JobsPageComponent {
 
   filtered: Job[] = [...this.jobs];
 
+  constructor(private _filterPipe: FilterPipe) {
+
+  }
   onClear() {
     // reset filtered
     this.filtered = [...this.jobs];
@@ -84,7 +88,7 @@ export class JobsPageComponent {
   filtering(filter: Partial<Filter>): void {
     // update filter
     this.filter = { ...this.filter, ...filter };
-    this.filtered = new FilterPipe().transform(this.jobs, this.filter);
+    this.filtered = this._filterPipe.transform(this.jobs, this.filter);
   }
 
   onRole(role: string): void {
